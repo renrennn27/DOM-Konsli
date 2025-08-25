@@ -26,16 +26,42 @@
         const list = document.getElementById("list")
 
         button.addEventListener("click", function(){
-            const teks = input.value
+            const teks = input.value.trim()
             if(teks !== "") {
                 const li = document.createElement('li')
-                li.textContent = teks
+            
+                const span = document.createElement("span")
+                span.textContent = teks
+
+                const editBtn = document.createElement("button")
+                editBtn.textContent = "Edit"
+                editBtn.classList.add("edit")
+
+                const hapusBtn = document.createElement("button")
+                hapusBtn.textContent = "Hapus"
+                hapusBtn.classList.add("hapus")
+
+                 editBtn.addEventListener("click", () => {
+                    input.value = span.textContent
+                    button.value = "Update"
+                })
+
+                hapusBtn.addEventListener("click", function(e){
+                    li.remove()
+                })
+                li.appendChild(span)
                 list.appendChild(li)
+                li.appendChild(editBtn)
+                li.appendChild(hapusBtn)
                 input.value = ""
             } else {
                 alert("Teks tidak boleh kosong!")
             }
         })
+
+        // function addListItem(teks) {
+            
+        // }
     </script>
 </body>
 </html>
