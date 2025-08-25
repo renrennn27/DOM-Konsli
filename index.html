@@ -24,7 +24,7 @@
         const input = document.getElementById("input")
         const button = document.getElementById("button")
         const list = document.getElementById("list")
-
+        
         button.addEventListener("click", function(){
             const teks = input.value.trim()
             if(teks !== "") {
@@ -44,6 +44,9 @@
                  editBtn.addEventListener("click", () => {
                     input.value = span.textContent
                     button.value = "Update"
+                    button.addEventListener("click", () => {
+                        li.remove()
+                    })
                 })
 
                 hapusBtn.addEventListener("click", function(e){
