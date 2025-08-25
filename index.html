@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form class="form" id="form">
+        <h2>To do</h2>
+        <div class="form-input">
+            <label for="input">Ketik apa yang kamu pikirkan :</label><br>
+            <input type="text" id="input" placeholder="Ketik sesuatu...."><br>
+            <input type="button" value="Kirim" id="button" class="btn">
+        </div>
+    </form>
+    <div id="content">
+        <ul id="list">
+        </ul>
+    </div>
+
+    <script>
+        const input = document.getElementById("input")
+        const button = document.getElementById("button")
+        const list = document.getElementById("list")
+
+        button.addEventListener("click", function(){
+            const teks = input.value
+            if(teks !== "") {
+                const li = document.createElement('li')
+                li.textContent = teks
+                list.appendChild(li)
+                input.value = ""
+            } else {
+                alert("Teks tidak boleh kosong!")
+            }
+        })
+    </script>
+</body>
+</html>
